@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Acme.Ecommerce.Application.Dto\Acme.Ecommerce.Application.Dto.csproj" />
+    <ProjectReference Include="..\Acme.Ecommerce.Transversal.Common\Acme.Ecommerce.Transversal.Common.csproj" />
+  </ItemGroup>
+
+</Project>

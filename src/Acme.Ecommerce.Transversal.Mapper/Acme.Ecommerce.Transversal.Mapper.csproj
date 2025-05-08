@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Acme.Ecommerce.Application.Dto\Acme.Ecommerce.Application.Dto.csproj" />
+    <ProjectReference Include="..\Acme.Ecommerce.Domain.Entity\Acme.Ecommerce.Domain.Entity.csproj" />
+  </ItemGroup>
+
+</Project>
