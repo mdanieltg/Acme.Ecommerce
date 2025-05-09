@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{189BD7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{EA5198BB-82FC-4936-8EE6-1AC8785EB322}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{59E82E86-735E-4FF7-8A33-A6064A3EF826}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{59E82E86-735E-4FF7-8A33-A6064A3EF826}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{8EF579D6-56CD-41FC-995F-CA3574E9B7FB}"
 EndProject
@@ -36,6 +36,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Application.Interface", "src\Acme.Ecommerce.Application.Interface\Acme.Ecommerce.Application.Interface.csproj", "{E0760352-15B7-4436-99F6-A9AF774DED76}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Application.Main", "src\Acme.Ecommerce.Application.Main\Acme.Ecommerce.Application.Main.csproj", "{249E45A1-63AB-4E6C-89EE-AE23A9F2D303}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Services.WebApi", "src\Acme.Ecommerce.Services.WebApi\Acme.Ecommerce.Services.WebApi.csproj", "{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -179,6 +181,18 @@ Global
 		{249E45A1-63AB-4E6C-89EE-AE23A9F2D303}.Release|x64.Build.0 = Release|Any CPU
 		{249E45A1-63AB-4E6C-89EE-AE23A9F2D303}.Release|x86.ActiveCfg = Release|Any CPU
 		{249E45A1-63AB-4E6C-89EE-AE23A9F2D303}.Release|x86.Build.0 = Release|Any CPU
+		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}.Debug|x64.Build.0 = Debug|Any CPU
+		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}.Debug|x86.Build.0 = Debug|Any CPU
+		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}.Release|x64.ActiveCfg = Release|Any CPU
+		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}.Release|x64.Build.0 = Release|Any CPU
+		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}.Release|x86.ActiveCfg = Release|Any CPU
+		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -200,5 +214,6 @@ Global
 		{89E8F78D-8723-4B85-880F-9635BEA018F1} = {949A33F4-7320-496F-BA8F-7B9C75B5E63D}
 		{E0760352-15B7-4436-99F6-A9AF774DED76} = {EA5198BB-82FC-4936-8EE6-1AC8785EB322}
 		{249E45A1-63AB-4E6C-89EE-AE23A9F2D303} = {EA5198BB-82FC-4936-8EE6-1AC8785EB322}
+		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23} = {59E82E86-735E-4FF7-8A33-A6064A3EF826}
 	EndGlobalSection
 EndGlobal

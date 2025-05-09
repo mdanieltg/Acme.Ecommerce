@@ -19,7 +19,6 @@ namespace Acme.Ecommerce.Infrastructure.Data
             get
             {
                 var sqlConnection = new SqlConnection();
-                if (sqlConnection is null) return null;
 
                 sqlConnection.ConnectionString = _configuration.GetConnectionString("NorthwindConnection");
                 sqlConnection.Open();
