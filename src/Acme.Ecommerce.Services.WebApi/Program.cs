@@ -14,7 +14,9 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services
+    .AddEndpointsApiExplorer()
+    .AddSwaggerGen();
 
 builder.Services.AddAutoMapper(x => x.AddProfile<MappingProfiles>());
 builder.Services.AddControllers()
@@ -25,10 +27,11 @@ builder.Services.AddControllers()
         options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
     });
 
-builder.Services.AddSingleton<IConnectionFactory, ConnectionFactory>();
-builder.Services.AddScoped<ICustomerApplication, CustomerApplication>();
-builder.Services.AddScoped<ICustomerDomain, CustomerDomain>();
-builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services
+    .AddSingleton<IConnectionFactory, ConnectionFactory>()
+    .AddScoped<ICustomerApplication, CustomerApplication>()
+    .AddScoped<ICustomerDomain, CustomerDomain>()
+    .AddScoped<ICustomerRepository, CustomerRepository>();
 
 WebApplication app = builder.Build();
 
@@ -36,6 +39,8 @@ WebApplication app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
