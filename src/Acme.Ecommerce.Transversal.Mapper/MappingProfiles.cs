@@ -22,6 +22,7 @@ namespace Acme.Ecommerce.Transversal.Mapper
             //     .ForMember(dst => dst.Phone, src => src.MapFrom(s => s.Phone))
             //     .ForMember(dst => dst.Fax, src => src.MapFrom(s => s.Fax))
             //     .ReverseMap();
+            CreateMap<User, UserDto>().ReverseMap();
         }
     }
 }

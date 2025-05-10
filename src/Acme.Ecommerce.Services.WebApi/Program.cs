@@ -5,6 +5,7 @@ using Acme.Ecommerce.Domain.Interface;
 using Acme.Ecommerce.Infrastructure.Data;
 using Acme.Ecommerce.Infrastructure.Interface;
 using Acme.Ecommerce.Infrastructure.Repository;
+using Acme.Ecommerce.Services.WebApi.Settings;
 using Acme.Ecommerce.Transversal.Common;
 using Acme.Ecommerce.Transversal.Mapper;
 using Newtonsoft.Json;
@@ -27,11 +28,18 @@ builder.Services.AddControllers()
         options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
     });
 
+// AppSettings
+AppSettings appSettings = builder.Configuration.Get<AppSettings>() ?? throw new Exception("Some settings are missing");
+builder.Services.AddSingleton(appSettings);
+
 builder.Services
     .AddSingleton<IConnectionFactory, ConnectionFactory>()
     .AddScoped<ICustomerApplication, CustomerApplication>()
     .AddScoped<ICustomerDomain, CustomerDomain>()
-    .AddScoped<ICustomerRepository, CustomerRepository>();
+    .AddScoped<ICustomerRepository, CustomerRepository>()
+    .AddScoped<IUserApplication, UserApplication>()
+    .AddScoped<IUserDomain, UserDomain>()
+    .AddScoped<IUserRepository, UserRepository>();
 
 WebApplication app = builder.Build();
 

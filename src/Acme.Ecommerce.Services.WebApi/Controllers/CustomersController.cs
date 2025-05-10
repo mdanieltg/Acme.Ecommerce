@@ -1,12 +1,14 @@
 ﻿using Acme.Ecommerce.Application.Dto;
 using Acme.Ecommerce.Application.Interface;
 using Acme.Ecommerce.Transversal.Common;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Acme.Ecommerce.Services.WebApi.Controllers;
 
 [ApiController]
 [Route("api/customers")]
+[Authorize]
 public class CustomersController : ControllerBase
 {
     private readonly ICustomerApplication _customerApplication;
