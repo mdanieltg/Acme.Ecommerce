@@ -3,8 +3,10 @@ using System.Security.Claims;
 using System.Text;
 using Acme.Ecommerce.Application.Dto;
 using Acme.Ecommerce.Application.Interface;
+using Acme.Ecommerce.Services.WebApi.Dto;
 using Acme.Ecommerce.Services.WebApi.Settings;
 using Acme.Ecommerce.Transversal.Common;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -12,6 +14,7 @@ namespace Acme.Ecommerce.Services.WebApi.Controllers;
 
 [ApiController]
 [Route("api/users")]
+[Authorize]
 public class UsersController : ControllerBase
 {
     private readonly IUserApplication _userApplication;
@@ -24,9 +27,10 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost]
-    public async ValueTask<IActionResult> Authenticate([FromBody] UserDto userDto)
+    [AllowAnonymous]
+    public async ValueTask<IActionResult> Authenticate([FromBody] AuthDto authDto)
     {
-        Response<UserDto> response = await _userApplication.Authenticate(userDto.UserName, userDto.Password);
+        Response<UserDto> response = await _userApplication.Authenticate(authDto.Username, authDto.Password);
         if (!response.IsSuccessful) return NotFound(response.Message);
 
         response.Payload.Token = BuildToken(response);
