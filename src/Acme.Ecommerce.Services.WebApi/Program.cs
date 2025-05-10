@@ -1,3 +1,4 @@
+using System.Text;
 using Acme.Ecommerce.Application.Interface;
 using Acme.Ecommerce.Application.Main;
 using Acme.Ecommerce.Domain.Core;
@@ -8,6 +9,8 @@ using Acme.Ecommerce.Infrastructure.Repository;
 using Acme.Ecommerce.Services.WebApi.Settings;
 using Acme.Ecommerce.Transversal.Common;
 using Acme.Ecommerce.Transversal.Mapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -28,6 +31,48 @@ builder.Services.AddControllers()
 AppSettings appSettings = builder.Configuration.Get<AppSettings>() ?? throw new Exception("Some settings are missing");
 builder.Services.AddSingleton(appSettings);
 
+// JSON Web Token configuration
+byte[] key = Encoding.UTF8.GetBytes(appSettings.Security.Token.Secret);
+
+builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.Events = new JwtBearerEvents
+        {
+            OnTokenValidated = context =>
+            {
+                int userId = int.Parse(context.Principal.Identity.Name);
+                return Task.CompletedTask;
+            },
+            OnAuthenticationFailed = context =>
+            {
+                if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
+                {
+                    context.Response.Headers.Add("Token-Expired", "true");
+                }
+
+                return Task.CompletedTask;
+            }
+        };
+        options.RequireHttpsMetadata = false;
+        options.SaveToken = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(key),
+            ValidateIssuer = true,
+            ValidIssuer = appSettings.Security.Token.Issuer,
+            ValidateAudience = true,
+            ValidAudience = appSettings.Security.Token.Audience,
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
+        };
+    });
+
 builder.Services
     .AddSingleton<IConnectionFactory, ConnectionFactory>()
     .AddScoped<ICustomerApplication, CustomerApplication>()
@@ -47,6 +92,31 @@ builder.Services
             Title = "Acme E-commerce API",
             Version = "v1",
             Description = "REST API for Acme E-commerce"
+        });
+
+        c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        {
+            Name = "Authorization",
+            Type = SecuritySchemeType.ApiKey,
+            Scheme = "Bearer",
+            BearerFormat = "JWT",
+            In = ParameterLocation.Header,
+            Description = "JWT Authorization header using the Bearer scheme."
+        });
+
+        c.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference
+                    {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "Bearer"
+                    }
+                },
+                []
+            }
         });
     });
 
