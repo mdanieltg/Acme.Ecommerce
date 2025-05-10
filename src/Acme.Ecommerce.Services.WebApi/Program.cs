@@ -8,17 +8,13 @@ using Acme.Ecommerce.Infrastructure.Repository;
 using Acme.Ecommerce.Services.WebApi.Settings;
 using Acme.Ecommerce.Transversal.Common;
 using Acme.Ecommerce.Transversal.Mapper;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services
-    .AddEndpointsApiExplorer()
-    .AddSwaggerGen();
-
 builder.Services.AddAutoMapper(x => x.AddProfile<MappingProfiles>());
 builder.Services.AddControllers()
     .AddNewtonsoftJson(options =>
@@ -40,6 +36,19 @@ builder.Services
     .AddScoped<IUserApplication, UserApplication>()
     .AddScoped<IUserDomain, UserDomain>()
     .AddScoped<IUserRepository, UserRepository>();
+
+// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Services
+    .AddEndpointsApiExplorer()
+    .AddSwaggerGen(c =>
+    {
+        c.SwaggerDoc("v1", new OpenApiInfo
+        {
+            Title = "Acme E-commerce API",
+            Version = "v1",
+            Description = "REST API for Acme E-commerce"
+        });
+    });
 
 WebApplication app = builder.Build();
 
