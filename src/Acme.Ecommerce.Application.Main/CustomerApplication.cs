@@ -21,12 +21,12 @@ namespace Acme.Ecommerce.Application.Main
             _mapper = mapper;
         }
 
-        public Response<CustomerDto?> Get(string customerId)
+        public async ValueTask<Response<CustomerDto?>> Get(string customerId)
         {
             var response = new Response<CustomerDto?>();
             try
             {
-                Customer? customer = _customerDomain.Get(customerId);
+                Customer? customer = await _customerDomain.Get(customerId);
                 response.Payload = _mapper.Map<CustomerDto>(customer);
 
                 if (response.Payload != null) response.IsSuccessful = true;
@@ -39,30 +39,12 @@ namespace Acme.Ecommerce.Application.Main
             return response;
         }
 
-        public async ValueTask<Response<CustomerDto?>> GetAsync(string customerId)
-        {
-            var response = new Response<CustomerDto?>();
-            try
-            {
-                Customer? customer = await _customerDomain.GetAsync(customerId);
-                response.Payload = _mapper.Map<CustomerDto>(customer);
-
-                if (response.Payload != null) response.IsSuccessful = true;
-            }
-            catch (Exception e)
-            {
-                response.Message = e.Message;
-            }
-
-            return response;
-        }
-
-        public Response<IEnumerable<CustomerDto>> GetAll()
+        public async ValueTask<Response<IEnumerable<CustomerDto>>> GetAll()
         {
             var response = new Response<IEnumerable<CustomerDto>>();
             try
             {
-                IEnumerable<Customer> customers = _customerDomain.GetAll();
+                IEnumerable<Customer> customers = await _customerDomain.GetAll();
                 response.Payload = _mapper.Map<IEnumerable<CustomerDto>>(customers);
 
                 if (response.Payload != null) response.IsSuccessful = true;
@@ -75,31 +57,13 @@ namespace Acme.Ecommerce.Application.Main
             return response;
         }
 
-        public async ValueTask<Response<IEnumerable<CustomerDto>>> GetAllAsync()
-        {
-            var response = new Response<IEnumerable<CustomerDto>>();
-            try
-            {
-                IEnumerable<Customer> customers = await _customerDomain.GetAllAsync();
-                response.Payload = _mapper.Map<IEnumerable<CustomerDto>>(customers);
-
-                if (response.Payload != null) response.IsSuccessful = true;
-            }
-            catch (Exception e)
-            {
-                response.Message = e.Message;
-            }
-
-            return response;
-        }
-
-        public Response<bool> Insert(CustomerDto customerDto)
+        public async ValueTask<Response<bool>> Insert(CustomerDto customerDto)
         {
             var response = new Response<bool>();
             try
             {
                 var customer = _mapper.Map<Customer>(customerDto);
-                response.Payload = _customerDomain.Insert(customer);
+                response.Payload = await _customerDomain.Insert(customer);
 
                 if (response.Payload) response.IsSuccessful = true;
             }
@@ -111,13 +75,13 @@ namespace Acme.Ecommerce.Application.Main
             return response;
         }
 
-        public async ValueTask<Response<bool>> InsertAsync(CustomerDto customerDto)
+        public async ValueTask<Response<bool>> Update(CustomerDto customerDto)
         {
             var response = new Response<bool>();
             try
             {
                 var customer = _mapper.Map<Customer>(customerDto);
-                response.Payload = await _customerDomain.InsertAsync(customer);
+                response.Payload = await _customerDomain.Update(customer);
 
                 if (response.Payload) response.IsSuccessful = true;
             }
@@ -129,64 +93,12 @@ namespace Acme.Ecommerce.Application.Main
             return response;
         }
 
-        public Response<bool> Update(CustomerDto customerDto)
+        public async ValueTask<Response<bool>> Delete(string customerId)
         {
             var response = new Response<bool>();
             try
             {
-                var customer = _mapper.Map<Customer>(customerDto);
-                response.Payload = _customerDomain.Update(customer);
-
-                if (response.Payload) response.IsSuccessful = true;
-            }
-            catch (Exception e)
-            {
-                response.Message = e.Message;
-            }
-
-            return response;
-        }
-
-        public async ValueTask<Response<bool>> UpdateAsync(CustomerDto customerDto)
-        {
-            var response = new Response<bool>();
-            try
-            {
-                var customer = _mapper.Map<Customer>(customerDto);
-                response.Payload = await _customerDomain.UpdateAsync(customer);
-
-                if (response.Payload) response.IsSuccessful = true;
-            }
-            catch (Exception e)
-            {
-                response.Message = e.Message;
-            }
-
-            return response;
-        }
-
-        public Response<bool> Delete(string customerId)
-        {
-            var response = new Response<bool>();
-            try
-            {
-                response.Payload = _customerDomain.Delete(customerId);
-                if (response.Payload) response.IsSuccessful = true;
-            }
-            catch (Exception e)
-            {
-                response.Message = e.Message;
-            }
-
-            return response;
-        }
-
-        public async ValueTask<Response<bool>> DeleteAsync(string customerId)
-        {
-            var response = new Response<bool>();
-            try
-            {
-                response.Payload = await _customerDomain.DeleteAsync(customerId);
+                response.Payload = await _customerDomain.Delete(customerId);
                 if (response.Payload) response.IsSuccessful = true;
             }
             catch (Exception e)

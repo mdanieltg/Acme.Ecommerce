@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Acme.Ecommerce.Application.Dto;
 using Acme.Ecommerce.Application.Interface;
 using Acme.Ecommerce.Domain.Entity;
@@ -19,7 +20,7 @@ namespace Acme.Ecommerce.Application.Main
             _mapper = mapper;
         }
 
-        public Response<UserDto> Authenticate(string username, string password)
+        public async ValueTask<Response<UserDto>> Authenticate(string username, string password)
         {
             var response = new Response<UserDto>();
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
@@ -30,7 +31,7 @@ namespace Acme.Ecommerce.Application.Main
 
             try
             {
-                User user = _userDomain.Authenticate(username, password);
+                User user = await _userDomain.Authenticate(username, password);
                 response.Payload = _mapper.Map<UserDto>(user);
                 response.IsSuccessful = true;
             }

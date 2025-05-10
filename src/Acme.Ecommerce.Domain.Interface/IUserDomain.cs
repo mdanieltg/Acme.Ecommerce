@@ -1,9 +1,10 @@
-﻿using Acme.Ecommerce.Domain.Entity;
+﻿using System.Threading.Tasks;
+using Acme.Ecommerce.Domain.Entity;
 
 namespace Acme.Ecommerce.Domain.Interface
 {
     public interface IUserDomain
     {
-        User Authenticate(string username, string password);
+        ValueTask<User> Authenticate(string username, string password);
     }
 }

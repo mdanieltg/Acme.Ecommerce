@@ -22,18 +22,7 @@ namespace Acme.Ecommerce.Infrastructure.Repository
             _connectionFactory = connectionFactory;
         }
 
-        public Customer? Get(string customerId)
-        {
-            using IDbConnection connection = _connectionFactory.GetConnection;
-            var parameters = new DynamicParameters();
-            parameters.Add("CustomerId", customerId);
-
-            var result = connection.QuerySingle<Customer?>(GetBytIdSp, parameters,
-                commandType: CommandType.StoredProcedure);
-            return result;
-        }
-
-        public async ValueTask<Customer?> GetAsync(string customerId)
+        public async ValueTask<Customer?> Get(string customerId)
         {
             using IDbConnection connection = _connectionFactory.GetConnection;
             var parameters = new DynamicParameters();
@@ -44,15 +33,7 @@ namespace Acme.Ecommerce.Infrastructure.Repository
             return result;
         }
 
-        public IEnumerable<Customer> GetAll()
-        {
-            using IDbConnection connection = _connectionFactory.GetConnection;
-            IEnumerable<Customer> result = connection.Query<Customer>(ListSp,
-                commandType: CommandType.StoredProcedure);
-            return result;
-        }
-
-        public async ValueTask<IEnumerable<Customer>> GetAllAsync()
+        public async ValueTask<IEnumerable<Customer>> GetAll()
         {
             using IDbConnection connection = _connectionFactory.GetConnection;
             IEnumerable<Customer> result = await connection.QueryAsync<Customer>(ListSp,
@@ -60,27 +41,7 @@ namespace Acme.Ecommerce.Infrastructure.Repository
             return result;
         }
 
-        public bool Insert(Customer customer)
-        {
-            using IDbConnection connection = _connectionFactory.GetConnection;
-            var parameters = new DynamicParameters();
-            parameters.Add("CustomerId", customer.CustomerId);
-            parameters.Add("CompanyName", customer.CompanyName);
-            parameters.Add("ContactName", customer.ContactName);
-            parameters.Add("ContactTitle", customer.ContactTitle);
-            parameters.Add("Address", customer.Address);
-            parameters.Add("City", customer.City);
-            parameters.Add("Region", customer.Region);
-            parameters.Add("PostalCode", customer.PostalCode);
-            parameters.Add("Country", customer.Country);
-            parameters.Add("Phone", customer.Phone);
-            parameters.Add("Fax", customer.Fax);
-
-            int result = connection.Execute(InsertSp, parameters, commandType: CommandType.StoredProcedure);
-            return result > 0;
-        }
-
-        public async ValueTask<bool> InsertAsync(Customer customer)
+        public async ValueTask<bool> Insert(Customer customer)
         {
             using IDbConnection connection = _connectionFactory.GetConnection;
             var parameters = new DynamicParameters();
@@ -100,27 +61,7 @@ namespace Acme.Ecommerce.Infrastructure.Repository
             return result > 0;
         }
 
-        public bool Update(Customer customer)
-        {
-            using IDbConnection connection = _connectionFactory.GetConnection;
-            var parameters = new DynamicParameters();
-            parameters.Add("CustomerId", customer.CustomerId);
-            parameters.Add("CompanyName", customer.CompanyName);
-            parameters.Add("ContactName", customer.ContactName);
-            parameters.Add("ContactTitle", customer.ContactTitle);
-            parameters.Add("Address", customer.Address);
-            parameters.Add("City", customer.City);
-            parameters.Add("Region", customer.Region);
-            parameters.Add("PostalCode", customer.PostalCode);
-            parameters.Add("Country", customer.Country);
-            parameters.Add("Phone", customer.Phone);
-            parameters.Add("Fax", customer.Fax);
-
-            int result = connection.Execute(UpdateSp, parameters, commandType: CommandType.StoredProcedure);
-            return result > 0;
-        }
-
-        public async ValueTask<bool> UpdateAsync(Customer customer)
+        public async ValueTask<bool> Update(Customer customer)
         {
             using IDbConnection connection = _connectionFactory.GetConnection;
             var parameters = new DynamicParameters();
@@ -140,17 +81,7 @@ namespace Acme.Ecommerce.Infrastructure.Repository
             return result > 0;
         }
 
-        public bool Delete(string customerId)
-        {
-            using IDbConnection connection = _connectionFactory.GetConnection;
-            var parameters = new DynamicParameters();
-            parameters.Add("CustomerId", customerId);
-
-            int result = connection.Execute(DeleteSp, parameters, commandType: CommandType.StoredProcedure);
-            return result > 0;
-        }
-
-        public async ValueTask<bool> DeleteAsync(string customerId)
+        public async ValueTask<bool> Delete(string customerId)
         {
             using IDbConnection connection = _connectionFactory.GetConnection;
             var parameters = new DynamicParameters();

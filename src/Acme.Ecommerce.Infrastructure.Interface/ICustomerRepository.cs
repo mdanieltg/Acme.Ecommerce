@@ -6,15 +6,10 @@ namespace Acme.Ecommerce.Infrastructure.Interface
 {
     public interface ICustomerRepository
     {
-        Customer? Get(string customerId);
-        ValueTask<Customer?> GetAsync(string customerId);
-        IEnumerable<Customer> GetAll();
-        ValueTask<IEnumerable<Customer>> GetAllAsync();
-        bool Insert(Customer customer);
-        ValueTask<bool> InsertAsync(Customer customer);
-        bool Update(Customer customer);
-        ValueTask<bool> UpdateAsync(Customer customer);
-        bool Delete(string customerId);
-        ValueTask<bool> DeleteAsync(string customerId);
+        ValueTask<Customer?> Get(string customerId);
+        ValueTask<IEnumerable<Customer>> GetAll();
+        ValueTask<bool> Insert(Customer customer);
+        ValueTask<bool> Update(Customer customer);
+        ValueTask<bool> Delete(string customerId);
     }
 }

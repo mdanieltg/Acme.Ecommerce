@@ -15,54 +15,29 @@ namespace Acme.Ecommerce.Domain.Core
             _customerRepository = customerRepository;
         }
 
-        public Customer? Get(string customerId)
+        public async ValueTask<Customer?> Get(string customerId)
         {
-            return _customerRepository.Get(customerId);
+            return await _customerRepository.Get(customerId);
         }
 
-        public async ValueTask<Customer?> GetAsync(string customerId)
+        public async ValueTask<IEnumerable<Customer>> GetAll()
         {
-            return await _customerRepository.GetAsync(customerId);
+            return await _customerRepository.GetAll();
         }
 
-        public IEnumerable<Customer> GetAll()
+        public async ValueTask<bool> Insert(Customer customer)
         {
-            return _customerRepository.GetAll();
+            return await _customerRepository.Insert(customer);
         }
 
-        public async ValueTask<IEnumerable<Customer>> GetAllAsync()
+        public async ValueTask<bool> Update(Customer customer)
         {
-            return await _customerRepository.GetAllAsync();
+            return await _customerRepository.Update(customer);
         }
 
-        public bool Insert(Customer customer)
+        public async ValueTask<bool> Delete(string customerId)
         {
-            return _customerRepository.Insert(customer);
-        }
-
-        public async ValueTask<bool> InsertAsync(Customer customer)
-        {
-            return await _customerRepository.InsertAsync(customer);
-        }
-
-        public bool Update(Customer customer)
-        {
-            return _customerRepository.Update(customer);
-        }
-
-        public async ValueTask<bool> UpdateAsync(Customer customer)
-        {
-            return await _customerRepository.UpdateAsync(customer);
-        }
-
-        public bool Delete(string customerId)
-        {
-            return _customerRepository.Delete(customerId);
-        }
-
-        public async ValueTask<bool> DeleteAsync(string customerId)
-        {
-            return await _customerRepository.DeleteAsync(customerId);
+            return await _customerRepository.Delete(customerId);
         }
     }
 }

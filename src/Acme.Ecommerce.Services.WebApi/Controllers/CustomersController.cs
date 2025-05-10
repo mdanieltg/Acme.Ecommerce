@@ -19,49 +19,49 @@ public class CustomersController : ControllerBase
     }
 
     [HttpGet("{customerId}")]
-    public async ValueTask<IActionResult> GetAsync(string customerId)
+    public async ValueTask<IActionResult> Get(string customerId)
     {
         if (string.IsNullOrEmpty(customerId)) return BadRequest();
 
-        Response<CustomerDto?> response = await _customerApplication.GetAsync(customerId);
+        Response<CustomerDto?> response = await _customerApplication.Get(customerId);
         return response.IsSuccessful
             ? Ok(response.Payload)
             : BadRequest(response.Message);
     }
 
     [HttpGet]
-    public async ValueTask<IActionResult> GetAllAsync()
+    public async ValueTask<IActionResult> GetAll()
     {
-        Response<IEnumerable<CustomerDto>> response = await _customerApplication.GetAllAsync();
+        Response<IEnumerable<CustomerDto>> response = await _customerApplication.GetAll();
         return response.IsSuccessful
             ? Ok(response.Payload)
             : BadRequest(response.Message);
     }
 
     [HttpPost]
-    public async ValueTask<IActionResult> InsertAsync([FromBody] CustomerDto customerDto)
+    public async ValueTask<IActionResult> Insert([FromBody] CustomerDto customerDto)
     {
-        Response<bool> response = await _customerApplication.InsertAsync(customerDto);
+        Response<bool> response = await _customerApplication.Insert(customerDto);
         return response.IsSuccessful
             ? Ok(response.Payload)
             : BadRequest(response.Message);
     }
 
     [HttpPut]
-    public async ValueTask<IActionResult> UpdateAsync([FromBody] CustomerDto customerDto)
+    public async ValueTask<IActionResult> Update([FromBody] CustomerDto customerDto)
     {
-        Response<bool> response = await _customerApplication.UpdateAsync(customerDto);
+        Response<bool> response = await _customerApplication.Update(customerDto);
         return response.IsSuccessful
             ? Ok(response.Payload)
             : BadRequest(response.Message);
     }
 
     [HttpDelete("{customerId}")]
-    public async ValueTask<IActionResult> DeleteAsync(string customerId)
+    public async ValueTask<IActionResult> Delete(string customerId)
     {
         if (string.IsNullOrEmpty(customerId)) return BadRequest();
 
-        Response<bool> response = await _customerApplication.DeleteAsync(customerId);
+        Response<bool> response = await _customerApplication.Delete(customerId);
         return response.IsSuccessful
             ? Ok(response.Payload)
             : BadRequest(response.Message);

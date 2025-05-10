@@ -1,4 +1,5 @@
-﻿using Acme.Ecommerce.Domain.Entity;
+﻿using System.Threading.Tasks;
+using Acme.Ecommerce.Domain.Entity;
 using Acme.Ecommerce.Domain.Interface;
 using Acme.Ecommerce.Infrastructure.Interface;
 
@@ -13,9 +14,9 @@ namespace Acme.Ecommerce.Domain.Core
             _userRepository = userRepository;
         }
 
-        public User Authenticate(string username, string password)
+        public async ValueTask<User> Authenticate(string username, string password)
         {
-            return _userRepository.Authenticate(username, password);
+            return await _userRepository.Authenticate(username, password);
         }
     }
 }

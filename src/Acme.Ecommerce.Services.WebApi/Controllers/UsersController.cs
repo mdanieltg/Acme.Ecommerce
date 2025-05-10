@@ -24,11 +24,10 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Authenticate([FromBody] UserDto userDto)
+    public async ValueTask<IActionResult> Authenticate([FromBody] UserDto userDto)
     {
-        Response<UserDto> response = _userApplication.Authenticate(userDto.UserName, userDto.Password);
-        if (!response.IsSuccessful)
-            return NotFound(response.Message);
+        Response<UserDto> response = await _userApplication.Authenticate(userDto.UserName, userDto.Password);
+        if (!response.IsSuccessful) return NotFound(response.Message);
 
         response.Payload.Token = BuildToken(response);
         return Ok(response.Payload);
