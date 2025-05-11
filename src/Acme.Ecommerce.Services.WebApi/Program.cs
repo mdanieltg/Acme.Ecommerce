@@ -46,7 +46,7 @@ builder.Services.AddAuthentication(options =>
         {
             OnTokenValidated = context =>
             {
-                int userId = int.Parse(context.Principal.Identity.Name);
+                int.TryParse(context.Principal?.Identity?.Name, out int userId);
                 return Task.CompletedTask;
             },
             OnAuthenticationFailed = context =>
