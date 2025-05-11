@@ -14,11 +14,14 @@ namespace Acme.Ecommerce.Application.Main
     {
         private readonly ICustomerDomain _customerDomain;
         private readonly IMapper _mapper;
+        private readonly IAppLogger<CustomerApplication> _logger;
 
-        public CustomerApplication(ICustomerDomain customerDomain, IMapper mapper)
+        public CustomerApplication(ICustomerDomain customerDomain, IMapper mapper,
+            IAppLogger<CustomerApplication> logger)
         {
             _customerDomain = customerDomain;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async ValueTask<Response<CustomerDto?>> Get(string customerId)
@@ -47,11 +50,16 @@ namespace Acme.Ecommerce.Application.Main
                 IEnumerable<Customer> customers = await _customerDomain.GetAll();
                 response.Payload = _mapper.Map<IEnumerable<CustomerDto>>(customers);
 
-                if (response.Payload != null) response.IsSuccessful = true;
+                if (response.Payload != null)
+                {
+                    response.IsSuccessful = true;
+                    _logger.LogInformation("Successfully retrieved all customers");
+                }
             }
             catch (Exception e)
             {
                 response.Message = e.Message;
+                _logger.LogError(e.Message);
             }
 
             return response;

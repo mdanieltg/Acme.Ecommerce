@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Application.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Services.WebApi", "src\Acme.Ecommerce.Services.WebApi\Acme.Ecommerce.Services.WebApi.csproj", "{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Transversal.Logging", "src\Acme.Ecommerce.Transversal.Logging\Acme.Ecommerce.Transversal.Logging.csproj", "{77D3FD6C-B5FF-4CFC-A208-782F8B2C3158}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -193,6 +195,18 @@ Global
 		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}.Release|x64.Build.0 = Release|Any CPU
 		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}.Release|x86.ActiveCfg = Release|Any CPU
 		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}.Release|x86.Build.0 = Release|Any CPU
+		{77D3FD6C-B5FF-4CFC-A208-782F8B2C3158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77D3FD6C-B5FF-4CFC-A208-782F8B2C3158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77D3FD6C-B5FF-4CFC-A208-782F8B2C3158}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{77D3FD6C-B5FF-4CFC-A208-782F8B2C3158}.Debug|x64.Build.0 = Debug|Any CPU
+		{77D3FD6C-B5FF-4CFC-A208-782F8B2C3158}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{77D3FD6C-B5FF-4CFC-A208-782F8B2C3158}.Debug|x86.Build.0 = Debug|Any CPU
+		{77D3FD6C-B5FF-4CFC-A208-782F8B2C3158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77D3FD6C-B5FF-4CFC-A208-782F8B2C3158}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77D3FD6C-B5FF-4CFC-A208-782F8B2C3158}.Release|x64.ActiveCfg = Release|Any CPU
+		{77D3FD6C-B5FF-4CFC-A208-782F8B2C3158}.Release|x64.Build.0 = Release|Any CPU
+		{77D3FD6C-B5FF-4CFC-A208-782F8B2C3158}.Release|x86.ActiveCfg = Release|Any CPU
+		{77D3FD6C-B5FF-4CFC-A208-782F8B2C3158}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -215,5 +229,6 @@ Global
 		{E0760352-15B7-4436-99F6-A9AF774DED76} = {EA5198BB-82FC-4936-8EE6-1AC8785EB322}
 		{249E45A1-63AB-4E6C-89EE-AE23A9F2D303} = {EA5198BB-82FC-4936-8EE6-1AC8785EB322}
 		{7BBF17C8-1D08-4F94-89A7-45DB8752AD23} = {59E82E86-735E-4FF7-8A33-A6064A3EF826}
+		{77D3FD6C-B5FF-4CFC-A208-782F8B2C3158} = {949A33F4-7320-496F-BA8F-7B9C75B5E63D}
 	EndGlobalSection
 EndGlobal

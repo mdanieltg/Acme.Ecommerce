@@ -25,6 +25,7 @@
     <ProjectReference Include="..\Acme.Ecommerce.Infrastructure.Data\Acme.Ecommerce.Infrastructure.Data.csproj" />
     <ProjectReference Include="..\Acme.Ecommerce.Infrastructure.Interface\Acme.Ecommerce.Infrastructure.Interface.csproj" />
     <ProjectReference Include="..\Acme.Ecommerce.Infrastructure.Repository\Acme.Ecommerce.Infrastructure.Repository.csproj" />
+    <ProjectReference Include="..\Acme.Ecommerce.Transversal.Logging\Acme.Ecommerce.Transversal.Logging.csproj" />
     <ProjectReference Include="..\Acme.Ecommerce.Transversal.Mapper\Acme.Ecommerce.Transversal.Mapper.csproj" />
   </ItemGroup>
 

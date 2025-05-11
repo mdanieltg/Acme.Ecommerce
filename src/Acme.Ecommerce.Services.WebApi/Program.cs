@@ -8,6 +8,7 @@ using Acme.Ecommerce.Infrastructure.Interface;
 using Acme.Ecommerce.Infrastructure.Repository;
 using Acme.Ecommerce.Services.WebApi.Settings;
 using Acme.Ecommerce.Transversal.Common;
+using Acme.Ecommerce.Transversal.Logging;
 using Acme.Ecommerce.Transversal.Mapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -81,6 +82,8 @@ builder.Services
     .AddScoped<IUserApplication, UserApplication>()
     .AddScoped<IUserDomain, UserDomain>()
     .AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services
