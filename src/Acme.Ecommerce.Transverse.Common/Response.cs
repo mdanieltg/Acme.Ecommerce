@@ -1,4 +1,4 @@
-﻿namespace Acme.Ecommerce.Transversal.Common
+﻿namespace Acme.Ecommerce.Transverse.Common
 {
     public class Response<T>
     {

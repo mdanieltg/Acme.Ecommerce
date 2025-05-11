@@ -14,7 +14,7 @@
     <ProjectReference Include="..\Acme.Ecommerce.Application.Interface\Acme.Ecommerce.Application.Interface.csproj" />
     <ProjectReference Include="..\Acme.Ecommerce.Domain.Entity\Acme.Ecommerce.Domain.Entity.csproj" />
     <ProjectReference Include="..\Acme.Ecommerce.Domain.Interface\Acme.Ecommerce.Domain.Interface.csproj" />
-    <ProjectReference Include="..\Acme.Ecommerce.Transversal.Common\Acme.Ecommerce.Transversal.Common.csproj" />
+    <ProjectReference Include="..\Acme.Ecommerce.Transverse.Common\Acme.Ecommerce.Transverse.Common.csproj" />
   </ItemGroup>
 
 </Project>

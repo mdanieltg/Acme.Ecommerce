@@ -5,9 +5,9 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Transversal.Common", "src\Acme.Ecommerce.Transversal.Common\Acme.Ecommerce.Transversal.Common.csproj", "{7226DE2D-AAA6-4A5E-9C2C-9EFD4B864A13}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Transverse.Common", "src\Acme.Ecommerce.Transverse.Common\Acme.Ecommerce.Transverse.Common.csproj", "{7226DE2D-AAA6-4A5E-9C2C-9EFD4B864A13}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transversal", "Transversal", "{949A33F4-7320-496F-BA8F-7B9C75B5E63D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transverse", "Transverse", "{949A33F4-7320-496F-BA8F-7B9C75B5E63D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{189BD7F1-77E2-445A-85E2-4DEE0963B9B6}"
 EndProject
@@ -31,7 +31,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Domain.Core"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Application.Dto", "src\Acme.Ecommerce.Application.Dto\Acme.Ecommerce.Application.Dto.csproj", "{E7521E56-A6B2-4A22-972D-BE0EBB534260}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Transversal.Mapper", "src\Acme.Ecommerce.Transversal.Mapper\Acme.Ecommerce.Transversal.Mapper.csproj", "{89E8F78D-8723-4B85-880F-9635BEA018F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Transverse.Mapper", "src\Acme.Ecommerce.Transverse.Mapper\Acme.Ecommerce.Transverse.Mapper.csproj", "{89E8F78D-8723-4B85-880F-9635BEA018F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Application.Interface", "src\Acme.Ecommerce.Application.Interface\Acme.Ecommerce.Application.Interface.csproj", "{E0760352-15B7-4436-99F6-A9AF774DED76}"
 EndProject
@@ -39,7 +39,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Application.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Services.WebApi", "src\Acme.Ecommerce.Services.WebApi\Acme.Ecommerce.Services.WebApi.csproj", "{7BBF17C8-1D08-4F94-89A7-45DB8752AD23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Transversal.Logging", "src\Acme.Ecommerce.Transversal.Logging\Acme.Ecommerce.Transversal.Logging.csproj", "{77D3FD6C-B5FF-4CFC-A208-782F8B2C3158}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Ecommerce.Transverse.Logging", "src\Acme.Ecommerce.Transverse.Logging\Acme.Ecommerce.Transverse.Logging.csproj", "{77D3FD6C-B5FF-4CFC-A208-782F8B2C3158}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@
 using Acme.Ecommerce.Domain.Entity;
 using AutoMapper;
 
-namespace Acme.Ecommerce.Transversal.Mapper
+namespace Acme.Ecommerce.Transverse.Mapper
 {
     public class MappingProfiles : Profile
     {

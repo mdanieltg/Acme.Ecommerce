@@ -5,7 +5,7 @@ using Acme.Ecommerce.Application.Dto;
 using Acme.Ecommerce.Application.Interface;
 using Acme.Ecommerce.Services.WebApi.Dto;
 using Acme.Ecommerce.Services.WebApi.Settings;
-using Acme.Ecommerce.Transversal.Common;
+using Acme.Ecommerce.Transverse.Common;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;

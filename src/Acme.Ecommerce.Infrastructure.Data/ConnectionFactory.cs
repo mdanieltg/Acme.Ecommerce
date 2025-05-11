@@ -1,5 +1,5 @@
 ﻿using System.Data;
-using Acme.Ecommerce.Transversal.Common;
+using Acme.Ecommerce.Transverse.Common;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 

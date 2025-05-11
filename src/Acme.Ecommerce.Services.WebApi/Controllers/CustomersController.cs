@@ -1,6 +1,6 @@
 ﻿using Acme.Ecommerce.Application.Dto;
 using Acme.Ecommerce.Application.Interface;
-using Acme.Ecommerce.Transversal.Common;
+using Acme.Ecommerce.Transverse.Common;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

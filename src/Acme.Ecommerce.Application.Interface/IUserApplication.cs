@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Acme.Ecommerce.Application.Dto;
-using Acme.Ecommerce.Transversal.Common;
+using Acme.Ecommerce.Transverse.Common;
 
 namespace Acme.Ecommerce.Application.Interface
 {

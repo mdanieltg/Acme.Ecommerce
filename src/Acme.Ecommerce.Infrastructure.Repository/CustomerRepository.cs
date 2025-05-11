@@ -3,7 +3,7 @@ using System.Data;
 using System.Threading.Tasks;
 using Acme.Ecommerce.Domain.Entity;
 using Acme.Ecommerce.Infrastructure.Interface;
-using Acme.Ecommerce.Transversal.Common;
+using Acme.Ecommerce.Transverse.Common;
 using Dapper;
 
 namespace Acme.Ecommerce.Infrastructure.Repository

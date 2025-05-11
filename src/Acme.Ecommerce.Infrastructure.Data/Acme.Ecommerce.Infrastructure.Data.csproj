@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Acme.Ecommerce.Transversal.Common\Acme.Ecommerce.Transversal.Common.csproj" />
+    <ProjectReference Include="..\Acme.Ecommerce.Transverse.Common\Acme.Ecommerce.Transverse.Common.csproj" />
   </ItemGroup>
 
 </Project>

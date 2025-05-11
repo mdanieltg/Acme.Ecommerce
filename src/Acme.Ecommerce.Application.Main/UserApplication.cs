@@ -4,7 +4,7 @@ using Acme.Ecommerce.Application.Dto;
 using Acme.Ecommerce.Application.Interface;
 using Acme.Ecommerce.Domain.Entity;
 using Acme.Ecommerce.Domain.Interface;
-using Acme.Ecommerce.Transversal.Common;
+using Acme.Ecommerce.Transverse.Common;
 using AutoMapper;
 
 namespace Acme.Ecommerce.Application.Main

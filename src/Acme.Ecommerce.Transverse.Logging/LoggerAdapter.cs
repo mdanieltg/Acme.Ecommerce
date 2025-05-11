@@ -1,7 +1,7 @@
-﻿using Acme.Ecommerce.Transversal.Common;
+﻿using Acme.Ecommerce.Transverse.Common;
 using Microsoft.Extensions.Logging;
 
-namespace Acme.Ecommerce.Transversal.Logging
+namespace Acme.Ecommerce.Transverse.Logging
 {
     public class LoggerAdapter<T> : IAppLogger<T>
     {

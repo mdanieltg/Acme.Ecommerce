@@ -8,7 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Acme.Ecommerce.Infrastructure.Data\Acme.Ecommerce.Infrastructure.Data.csproj" />
     <ProjectReference Include="..\Acme.Ecommerce.Infrastructure.Interface\Acme.Ecommerce.Infrastructure.Interface.csproj" />
-    <ProjectReference Include="..\Acme.Ecommerce.Transversal.Common\Acme.Ecommerce.Transversal.Common.csproj" />
+    <ProjectReference Include="..\Acme.Ecommerce.Transverse.Common\Acme.Ecommerce.Transverse.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
